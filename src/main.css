@@ -1,8 +1,5 @@
-@charset "UTF-8";
-
 /* Import ET Book styles
    adapted from https://github.com/edwardtufte/et-book/blob/gh-pages/et-book.css */
-
 @font-face {
   font-family: "et-book";
   src: url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot");
@@ -11,7 +8,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "et-book";
   src: url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot");
@@ -20,7 +16,6 @@
   font-style: italic;
   font-display: swap;
 }
-
 @font-face {
   font-family: "et-book";
   src: url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot");
@@ -29,7 +24,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "et-book-roman-old-style";
   src: url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.eot");
@@ -38,30 +32,23 @@
   font-style: normal;
   font-display: swap;
 }
+:root {
+  --ct-text-size: 13px;
+  --ls-font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  --ct-code-font-family: "Fira Code", monospace;
+}
 
-/* Tufte CSS styles */
 html {
-  font-size: 15px;
+  font-size: var(--ct-text-size);
 }
 
 body {
-  width: 87.5%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 12.5%;
-  font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-  background-color: #fffff8;
-  color: #111;
-  max-width: 1400px;
-  counter-reset: sidenote-counter;
+  font-family: var(--ls-font-family);
+  -webkit-font-smoothing: auto;
 }
 
-/* Adds dark mode */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #151515;
-    color: #ddd;
-  }
+.numeral {
+  font-family: et-book-roman-old-style;
 }
 
 h1 {
@@ -146,26 +133,25 @@ div.epigraph {
   margin: 5em 0;
 }
 
-div.epigraph>blockquote {
+div.epigraph > blockquote {
   margin-top: 3em;
   margin-bottom: 3em;
 }
 
-div.epigraph>blockquote,
-div.epigraph>blockquote>p {
+div.epigraph > blockquote,
+div.epigraph > blockquote > p {
   font-style: italic;
 }
 
-div.epigraph>blockquote>footer {
+div.epigraph > blockquote > footer {
   font-style: normal;
 }
 
-div.epigraph>blockquote>footer>cite {
+div.epigraph > blockquote > footer > cite {
   font-style: italic;
 }
 
 /* end chapter epigraphs styles */
-
 blockquote {
   font-size: 1.4rem;
 }
@@ -181,16 +167,16 @@ blockquote footer {
   text-align: right;
 }
 
-section>p,
-section>footer,
-section>table {
+section > p,
+section > footer,
+section > table {
   width: 55%;
 }
 
 /* 50 + 5 == 55, to be the same width as paragraph */
-section>dl,
-section>ol,
-section>ul {
+section > dl,
+section > ol,
+section > ul {
   width: 50%;
   -webkit-padding-start: 5%;
 }
@@ -228,6 +214,18 @@ figure.fullwidth figcaption {
   margin-right: 24%;
 }
 
+/* Tufte CSS styles */
+body {
+  width: 87.5%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 12.5%;
+  background-color: var(--ls-primary-background-color);
+  color: var(--ls-primary-text-color);
+  max-width: 1400px;
+  counter-reset: sidenote-counter;
+}
+
 /* Links: replicate underline that clears descenders */
 a:link,
 a:visited {
@@ -243,10 +241,7 @@ a:link,
 .tufte-underline,
 .hover-tufte-underline:hover {
   text-decoration: none;
-  background: -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(currentColor, currentColor);
   background: linear-gradient(#fffff8, #fffff8), linear-gradient(#fffff8, #fffff8), linear-gradient(currentColor, currentColor);
-  -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
-  -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
   background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
   background-repeat: no-repeat, no-repeat, repeat-x;
   text-shadow: 0.03em 0 #fffff8, -0.03em 0 #fffff8, 0 0.03em #fffff8, 0 -0.03em #fffff8, 0.06em 0 #fffff8, -0.06em 0 #fffff8, 0.09em 0 #fffff8, -0.09em 0 #fffff8, 0.12em 0 #fffff8, -0.12em 0 #fffff8, 0.15em 0 #fffff8, -0.15em 0 #fffff8;
@@ -254,24 +249,24 @@ a:link,
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-
   a:link,
   .tufte-underline,
   .hover-tufte-underline:hover {
     background-position-y: 87%, 87%, 87%;
   }
 }
-
 /* Adds dark mode */
 @media (prefers-color-scheme: dark) {
-
   a:link,
   .tufte-underline,
   .hover-tufte-underline:hover {
     text-shadow: 0.03em 0 #151515, -0.03em 0 #151515, 0 0.03em #151515, 0 -0.03em #151515, 0.06em 0 #151515, -0.06em 0 #151515, 0.09em 0 #151515, -0.09em 0 #151515, 0.12em 0 #151515, -0.12em 0 #151515, 0.15em 0 #151515, -0.15em 0 #151515;
   }
 }
-
+a:link::-moz-selection {
+  text-shadow: 0.03em 0 #b4d5fe, -0.03em 0 #b4d5fe, 0 0.03em #b4d5fe, 0 -0.03em #b4d5fe, 0.06em 0 #b4d5fe, -0.06em 0 #b4d5fe, 0.09em 0 #b4d5fe, -0.09em 0 #b4d5fe, 0.12em 0 #b4d5fe, -0.12em 0 #b4d5fe, 0.15em 0 #b4d5fe, -0.15em 0 #b4d5fe;
+  background: #b4d5fe;
+}
 a:link::selection,
 a:link::-moz-selection {
   text-shadow: 0.03em 0 #b4d5fe, -0.03em 0 #b4d5fe, 0 0.03em #b4d5fe, 0 -0.03em #b4d5fe, 0.06em 0 #b4d5fe, -0.06em 0 #b4d5fe, 0.09em 0 #b4d5fe, -0.09em 0 #b4d5fe, 0.12em 0 #b4d5fe, -0.12em 0 #b4d5fe, 0.15em 0 #b4d5fe, -0.15em 0 #b4d5fe;
@@ -340,34 +335,34 @@ div.table-wrapper {
 
 .sans {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-  letter-spacing: .03em;
+  letter-spacing: 0.03em;
 }
 
 code,
-pre>code {
+pre > code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 1.0rem;
+  font-size: 1rem;
   line-height: 1.42;
   -webkit-text-size-adjust: 100%;
   /* Prevent adjustments of font size after orientation changes in iOS. See https://github.com/edwardtufte/tufte-css/issues/81#issuecomment-261953409 */
 }
 
-.sans>code {
+.sans > code {
   font-size: 1.2rem;
 }
 
-h1>code,
-h2>code,
-h3>code {
-  font-size: 0.80em;
+h1 > code,
+h2 > code,
+h3 > code {
+  font-size: 0.8em;
 }
 
-.marginnote>code,
-.sidenote>code {
+.marginnote > code,
+.sidenote > code {
   font-size: 1rem;
 }
 
-pre>code {
+pre > code {
   font-size: 0.9rem;
   width: 52.5%;
   margin-left: 2.5%;
@@ -375,7 +370,7 @@ pre>code {
   display: block;
 }
 
-pre.fullwidth>code {
+pre.fullwidth > code {
   width: 90%;
 }
 
@@ -425,55 +420,45 @@ label.margin-toggle:not(.sidenote-number) {
     padding-left: 8%;
     padding-right: 8%;
   }
-
   hr,
-  section>p,
-  section>footer,
-  section>table {
+  section > p,
+  section > footer,
+  section > table {
     width: 100%;
   }
-
-  pre>code {
+  pre > code {
     width: 97%;
   }
-
-  section>dl,
-  section>ol,
-  section>ul {
+  section > dl,
+  section > ol,
+  section > ul {
     width: 90%;
   }
-
   figure {
     max-width: 90%;
   }
-
   figcaption,
   figure.fullwidth figcaption {
     margin-right: 0%;
     max-width: none;
   }
-
   blockquote {
     margin-left: 1.5em;
     margin-right: 0em;
   }
-
   blockquote p,
   blockquote footer {
     width: 100%;
   }
-
   label.margin-toggle:not(.sidenote-number) {
     display: inline;
   }
-
   .sidenote,
   .marginnote {
     display: none;
   }
-
-  .margin-toggle:checked+.sidenote,
-  .margin-toggle:checked+.marginnote {
+  .margin-toggle:checked + .sidenote,
+  .margin-toggle:checked + .marginnote {
     display: block;
     float: left;
     left: 1rem;
@@ -483,17 +468,99 @@ label.margin-toggle:not(.sidenote-number) {
     vertical-align: baseline;
     position: relative;
   }
-
   label {
     cursor: pointer;
   }
-
   div.table-wrapper,
   table {
     width: 85%;
   }
-
   img {
     width: 100%;
   }
 }
+.default-theme,
+html[data-theme=default] {
+  --ls-primary-background-color: #fffff8;
+  --ls-primary-text-color: #111;
+}
+
+.default-theme,
+html[data-theme=default] {
+  --ls-primary-background-color: #fffff8;
+  --ls-primary-text-color: #111;
+}
+
+.nightMode.card,
+.night_mode .card,
+.nightMode #tags-container,
+.night_mode #tags-container {
+  background-color: #fffff8;
+  color: var(--ls-primary-text-color);
+}
+
+/* CLOZE COLOR */
+.cloze {
+  color: blue;
+}
+
+/* "EXTRA" FIELD COLOR */
+#extra {
+  color: navy;
+}
+
+/* HINT COLOR*/
+a[href="#"] {
+  color: blue;
+}
+
+/* HINT REVEAL COLOR */
+.hints {
+  color: MediumSeaGreen;
+}
+
+/* Missed Questions Reveal Color */
+#missed {
+  color: red;
+}
+
+#missed a[href="#"] {
+  color: red !important;
+}
+
+.nightMode #missed a[href="#"],
+.night_mode #missed a[href="#"] {
+  color: red !important;
+}
+
+/* NM CLOZE COLOR */
+.nightMode .cloze,
+.night_mode .cloze {
+  color: indianred !important;
+}
+
+/* NM "EXTRA" FIELD COLOR */
+/* NM HINT COLOR */
+.nightMode a[href="#"],
+.night_mode a[href="#"] {
+  color: mediumseagreen;
+}
+
+/* NM HINT REVEAL COLOR */
+.nightMode .hints,
+.night_mode .hints {
+  color: cyan;
+}
+
+/* COLOR ACCENTS FOR BOLD-ITALICS-UNDERLINE*/
+b {
+  color: inherit;
+}
+
+u {
+  color: inherit;
+}
+
+i {
+  color: inherit;
+}/*# sourceMappingURL=main.css.map */

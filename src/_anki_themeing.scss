@@ -1,0 +1,79 @@
+@use 'theme_default';
+
+.nightMode.card,
+.night_mode .card,
+.nightMode #tags-container,
+.night_mode #tags-container {
+    background-color: $primary-background-color;
+    color: var(--ls-primary-text-color);
+}
+
+/* CLOZE COLOR */
+.cloze {
+    color: blue;
+}
+
+/* "EXTRA" FIELD COLOR */
+#extra {
+    color: navy;
+}
+
+/* HINT COLOR*/
+a[href="#"] {
+    color: blue;
+}
+
+/* HINT REVEAL COLOR */
+.hints {
+    color: MediumSeaGreen;
+}
+
+/* Missed Questions Reveal Color */
+#missed {
+    color: red;
+}
+
+#missed a[href="#"] {
+    color: red !important;
+}
+
+.nightMode #missed a[href="#"],
+.night_mode #missed a[href="#"] {
+    color: red !important;
+}
+
+
+/* NM CLOZE COLOR */
+.nightMode .cloze,
+.night_mode .cloze {
+    color: indianred !important;
+}
+
+/* NM "EXTRA" FIELD COLOR */
+.nightMode #extra,
+.night_mode #extra {}
+
+/* NM HINT COLOR */
+.nightMode a[href="#"],
+.night_mode a[href="#"] {
+    color: mediumseagreen;
+}
+
+/* NM HINT REVEAL COLOR */
+.nightMode .hints,
+.night_mode .hints {
+    color: cyan;
+}
+
+/* COLOR ACCENTS FOR BOLD-ITALICS-UNDERLINE*/
+b {
+    color: inherit;
+}
+
+u {
+    color: inherit;
+}
+
+i {
+    color: inherit;
+}
